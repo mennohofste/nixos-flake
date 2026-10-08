@@ -28,15 +28,19 @@
     extraGroups = ["networkmanager" "wheel"];
   };
 
-  programs.git = {
-    enable = true;
-    config.user = {
-      name = "Menno Hofste";
-      email = "menno1337@gmail.com";
+  services.displayManager.gdm.enable = true;
+  programs = {
+    git = {
+      enable = true;
+      config.user = {
+        name = "Menno Hofste";
+        email = "menno1337@gmail.com";
+      };
     };
+    hyprland.enable = true;
   };
 
-  environment.systemPackages = [pkgs.vim];
+  environment.systemPackages = [pkgs.vim pkgs.kitty];
 
   # Set experimental features
   nix.settings.experimental-features = ["nix-command" "flakes"];
